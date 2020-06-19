@@ -1,0 +1,36 @@
+
+<h3>Basic Chips</h3>
+<vsfChips
+  [(ngModel)]="values2"
+ >
+</vsfChips>
+
+
+<h4>values of basic chips</h4>
+<div *ngFor="let value of values2">
+  {{value}}
+</div>
+
+<hr>
+
+<h3>Chips with custom template</h3>
+<vsfChips
+  [(ngModel)]="values1"
+  [chipSetStyle]="{'border-radius':'3em'}"
+  [chipStyle]="{'border-radius':'3em'}"
+  seperators=", ;"
+ >
+
+ <ng-template let-some="vsfChip" #vsfChips>
+  <i class="fa fa-user"></i> {{some}}
+</ng-template>
+
+</vsfChips>
+
+<h4>values of custom chips</h4>
+<div *ngFor="let value of values1">
+  {{value}}
+</div>
+
+<br>
+
