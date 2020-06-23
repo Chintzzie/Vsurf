@@ -1,6 +1,4 @@
 import { Component, OnInit, ViewChild } from '@angular/core';
-import {AuthService} from './shared/services/auth.service';
-import { NotificationService } from './shared/services/notification.service';
 
 declare let $:any;
 
