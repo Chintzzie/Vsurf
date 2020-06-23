@@ -1,0 +1,13 @@
+
+<div class="inputbox" #inputbox [ngStyle]="inputStyle">
+
+  <input class="inputElement"
+  [(ngModel)]="value"
+  type="text"
+  (focus)="focus.emit($event);"
+  (input)="input.emit($event);"
+  (keydown)="keypressed.emit($event)"
+  [placeholder]="placeholder"
+
+>
+</div>

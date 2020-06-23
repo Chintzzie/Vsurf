@@ -1,0 +1,12 @@
+<vsf-auto-complete
+  [(ngModel)]="autocompleteval"
+  [autoCompleteStyle]="{width: '80%'}"
+  (termChanged)="suggestionUpdater($event)"
+  [suggestions]="suggestions"
+  (completed)="completeTriggered()"
+>
+<!-- <ng-template let-suggestion="item" vsfTemplate="autoCompleteItem" >
+  <a href="http://www.google.com/{{suggestion}}">{{suggestion}} from register</a>
+</ng-template> -->
+
+</vsf-auto-complete>

@@ -1,0 +1,23 @@
+.auto-complete{
+  margin: 5px;
+}
+
+.inputBox{
+  width: 100%;
+}
+
+.selectionList{
+  max-width: 100%;
+}
+
+.visible{
+  opacity: 1;
+}
+
+.invisible{
+  opacity: 0;
+}
+
+
+
+
