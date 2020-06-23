@@ -3,10 +3,10 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BhaskarComponentsComponent } from './bhaskar-components/bhaskar-components.component';
 import { ChipsDemoComponent } from './chips-demo/chips-demo.component';
-import { ChipsModule } from 'src/app/components/Bhaskar/chips/chips.module';
-import { DragDropModule } from 'src/app/components/Bhaskar/drag-drop/drag-drop';
-import { PasswordModule } from 'src/app/components/Bhaskar/password/password.module';
-import { TableModule } from 'src/app/components/Bhaskar/table/table.module';
+import { ChipsModule } from '../../components/Bhaskar/chips/chips.module';
+import { DragDropModule } from '../../components/Bhaskar/drag-drop/drag-drop';
+import { PasswordModule } from '../../components/Bhaskar/password/password.module';
+import { TableModule } from '../../components/Bhaskar/table/table.module';
 import { DragdropDemoComponent } from './dragdrop-demo/dragdrop-demo.component';
 import { PasswordDemoComponent } from './password-demo/password-demo.component';
 

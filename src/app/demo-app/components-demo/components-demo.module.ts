@@ -1,7 +1,6 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { ComponentsListComponent } from './components-list/components-list.component';
-import { RouterModule } from '@angular/router';
 import { BhaskarModule } from '../Bhaskar/bhaskar.module';
 
 
