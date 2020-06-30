@@ -1,4 +1,4 @@
-import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, TemplateRef, ContentChild, ElementRef, AfterContentInit, AfterViewChecked, DoCheck, ViewEncapsulation } from '@angular/core';
+import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, TemplateRef, ContentChild, ElementRef, AfterContentInit, AfterViewChecked, DoCheck, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 import { SelectionListComponent } from '../selection-list/selection-list.component';
 import { VsfTemplateDirective } from '../util/vsf-template.directive';
@@ -8,23 +8,16 @@ import { Inputbox } from '../inputbox/inputbox';
   selector: 'vsf-auto-complete',
   templateUrl: './auto-complete.component.html',
   styleUrls: ['./auto-complete.component.css'],
-  providers:[{
-    provide: NG_VALUE_ACCESSOR,
-    useExisting: AutoCompleteComponent,
-    multi: true
-  }]
 })
-export class AutoCompleteComponent implements ControlValueAccessor {
+export class AutoCompleteComponent implements OnChanges {
 
-  @Input() suggestions=[];
+  @Input() suggestionsList=[];
 
   @Input() autoCompleteStyle={};
 
   @Input() promptLabel:string="Enter some input";
 
   @Output() completed:EventEmitter<string>=new EventEmitter<string>();
-
-  @Output() termChanged:EventEmitter<string>=new EventEmitter<string>();
 
   @ContentChild(VsfTemplateDirective) suggestionTemplateDirective:VsfTemplateDirective;
 
@@ -33,6 +26,9 @@ export class AutoCompleteComponent implements ControlValueAccessor {
   @ViewChild(SelectionListComponent) selectionList:SelectionListComponent;
 
   constructor() { }
+
+
+  suggestions:string[]=[];
 
   SUGGESTION_TEMPLATE_TAG="autoCompleteItem";
 
@@ -44,8 +40,6 @@ export class AutoCompleteComponent implements ControlValueAccessor {
 
   value:string;
 
-  onValueChange:Function;
-
   mousein=false;
 
   focusin=false;
@@ -53,9 +47,17 @@ export class AutoCompleteComponent implements ControlValueAccessor {
   ngDoCheck(): void {
     if(!!this.inputbox){
       this.selectionList.itemWidth=this.inputbox.offsetWidth+"px";
-    }
+	}
+
 
   }
+
+  ngOnChanges(changes: SimpleChanges): void {
+	  if(changes.suggestionsList){
+
+		this.updateSuggestions();
+	  }
+}
 
   ngAfterContentInit(): void {
     if(!!this.suggestionTemplateDirective && this.suggestionTemplateDirective.getName()==this.SUGGESTION_TEMPLATE_TAG){
@@ -68,23 +70,11 @@ export class AutoCompleteComponent implements ControlValueAccessor {
 
   }
 
-  writeValue(obj: any): void {
-    if (obj=="" || obj==undefined){
-      return;
-    }else{
-      this.value=obj;
-    }
-  }
-  registerOnChange(fn: any): void {
-    this.onValueChange=fn;
-  }
-  registerOnTouched(fn: any): void {
-  }
-  setDisabledState?(isDisabled: boolean): void {
-  }
+
 
   ngOnInit(): void {
-    window.onresize=this.ngDoCheck;
+	window.onresize=this.ngDoCheck;
+	this.suggestionsList=[...new Set(this.suggestionsList.map(s=>s))];
   }
 
   triggerCompleted(){
@@ -106,9 +96,10 @@ export class AutoCompleteComponent implements ControlValueAccessor {
 
   inputChanged(){
     this.value=this.Inputbox.value;
-    this.onValueChange(this.value);
     if(this.value==""){
-      this.showSuggestions=false;
+	  this.showSuggestions=false;
+	  this.suggestions=[];
+	  this.triggerCompleted();
     }else{
       this.showSuggestions=true;
       this.updateSuggestions();
@@ -116,7 +107,7 @@ export class AutoCompleteComponent implements ControlValueAccessor {
   }
 
   updateSuggestions(){
-    this.termChanged.emit(this.value);
+    this.suggestionUpdater();
   }
 
   inputBlurred(){
@@ -137,14 +128,16 @@ export class AutoCompleteComponent implements ControlValueAccessor {
 
   mouseEntered(){
     this.mousein=true;
-    if(this.focusin)
-      this.showSuggestions=true;
+    if(this.focusin && this.suggestions.length!=0)
+	  this.showSuggestions=true;
+
   }
 
   mouseLeft(){
     this.mousein=false;
-    if(!this.focusin)
-      this.showSuggestions=false;
+    if(!this.focusin || this.suggestions.length==0)
+	  this.showSuggestions=false;
+
   }
 
   suggestionClicked(index,showFurtherSuggestions){
@@ -153,9 +146,13 @@ export class AutoCompleteComponent implements ControlValueAccessor {
     if(showFurtherSuggestions)
       this.inputChanged();
     else{
-      this.onValueChange(this.value);
       this.triggerCompleted();
     }
+
+  }
+
+  suggestionUpdater(){
+	this.suggestions= this.suggestionsList.filter((value:string)=>value.toLowerCase().indexOf(this.value)!=-1);
 
   }
 

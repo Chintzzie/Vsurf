@@ -1,8 +1,6 @@
 <vsf-auto-complete
-  [(ngModel)]="autocompleteval"
   [autoCompleteStyle]="{width: '80%'}"
-  (termChanged)="suggestionUpdater($event)"
-  [suggestions]="suggestions"
+  [suggestionsList]="suggestionsList"
   (completed)="completeTriggered()"
 >
 <!-- <ng-template let-suggestion="item" vsfTemplate="autoCompleteItem" >

@@ -21,9 +21,9 @@
 }
 
 .visible{
-  opacity: 1;
+  display: initial;
 }
 
 .invisible{
-  opacity: 0;
+  display: none;
 }

@@ -1,19 +1,38 @@
-import { Component, OnInit, Input } from '@angular/core';
+import { Component, OnInit, Input, DoCheck, OnChanges, SimpleChanges, ContentChild, AfterContentInit, TemplateRef, Output, EventEmitter } from '@angular/core';
+import { VsfTemplateDirective } from '../util/vsf-template.directive';
 
 @Component({
   selector: 'vsf-container',
   templateUrl: './container.component.html',
   styleUrls: ['./container.component.css']
 })
-export class ContainerComponent implements OnInit {
+export class ContainerComponent implements OnInit,AfterContentInit {
 
-	constructor() { }
+	@Input('dataList') originalDataList:any[]=[];
 
-	@Input() dataList:any[]=[];
+	@Input() columns:string="col-6";
 
 	@Input() sortingProperties=[];
 
+	@Input() searchingProperties=[];
+
+	@Output() loadMore:EventEmitter<any>=new EventEmitter<any>();
+
+	@ContentChild(VsfTemplateDirective) itemTemplateRef:VsfTemplateDirective;
+
+	constructor() { }
+
+	lastSearchedByTerm:string="";
+
+	lastSortedByProperty:string="";
+
+	itemTemplate:TemplateRef<any>;
+
+	dataList:any[]=[];
+
 	isAscendingOrder={};
+
+	suggestionsList:string[]=[];
 
 	ngOnInit(): void {
 
@@ -21,6 +40,35 @@ export class ContainerComponent implements OnInit {
 			this.isAscendingOrder[sortingProperty]=false;
 		});
 
+
+
+	}
+
+	ngDoCheck(): void {
+	}
+
+	ngOnChanges(changes: SimpleChanges): void {
+		if(!!changes.originalDataList){
+			this.dataList=[...this.originalDataList];
+
+			let tempList=[]
+			this.searchingProperties.forEach((searchingProperty)=>{
+				this.originalDataList.forEach((dataItem)=>{
+					tempList.push(dataItem[searchingProperty]);
+				})
+			});
+			this.suggestionsList=[...tempList];
+
+			this.sortBy(this.lastSortedByProperty);
+			this.search(this.lastSearchedByTerm);
+
+		}
+	}
+
+	ngAfterContentInit(): void {
+		if(!!this.itemTemplateRef){
+			this.itemTemplate=this.itemTemplateRef.getTemplate();
+		}
 	}
 
 	sortBy(property){
@@ -39,7 +87,26 @@ export class ContainerComponent implements OnInit {
 	}
 
 	sortButtonClicked(button){
+		this.lastSortedByProperty=button;
 		this.sortBy(button);
 	}
 
+	search(term:string){
+		this.lastSearchedByTerm=term;
+		term=term.toLowerCase();
+		let tempDataList:any[]=[];
+		this.searchingProperties.forEach((searchingProperty)=>{
+			this.originalDataList.forEach((dataItem)=>{
+				let val:string=dataItem[searchingProperty];
+				val=val.toLowerCase();
+				if(val.indexOf(term)!=-1)
+					tempDataList.push(dataItem);
+			});
+		});
+		this.dataList=[...tempDataList];
+	}
+
+	loadMoreData(){
+		this.loadMore.emit();
+	}
 }

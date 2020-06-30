@@ -2,11 +2,6 @@
 
 	<div class="controls" >
 
-
-		<div class="filter-controls">
-			<vsf-button-group [buttons]="['acd','bcd','acd','bcd']"></vsf-button-group>
-		</div>
-
 		<div class="sort-controls">
 			<vsf-button-group
 				[buttons]="sortingProperties"
@@ -28,12 +23,26 @@
 
 	</div>
 
-	<div class="vsf-grid" >
-		<vsf-grid >
-			<ng-content></ng-content>
-		</vsf-grid>
+	<br>
+	<br>
+
+	<div class="autocomplete-bar">
+		<vsf-auto-complete
+		[suggestionsList]="suggestionsList"
+		(completed)="search($event)"
+	  	>
+	  	</vsf-auto-complete>
 	</div>
 
+	<div class="vsf-grid" >
+		<vsf-grid
+			[dataList]="dataList"
+			[columns]="columns"
+			[itemTemplate]="itemTemplate"
+			(needMoreData)="loadMoreData()"
+		>
+		</vsf-grid>
+	</div>
 
 </div>
 

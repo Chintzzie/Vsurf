@@ -1,19 +1,35 @@
 
+div.loading{
+	margin-left: 40%;
+}
+div.loading>i{
+	color: skyblue;
+}
+div.no-items
+{
+	margin-left: 40%;
+}
 .grid-container{
 
 	justify-items: center;
 	margin: 0.25em;
 	width: 98%;
-	overflow-y: auto;
+	overflow-y: scroll;
 	border-style: solid;
 	border-width: 0.15em;
 	padding: 0.25em;
-	max-height: 340px;
+	max-height: 360px;
 }
 
 [class*="col-"] {
 	display: inline-block;
 	overflow-wrap: break-word;
+  }
+
+  [class*="col-"]>div {
+	  border-width: 0.5em;
+	  border-style: solid;
+	  border-color: transparent;
   }
 
 .col-1 {width: 8.33%;}

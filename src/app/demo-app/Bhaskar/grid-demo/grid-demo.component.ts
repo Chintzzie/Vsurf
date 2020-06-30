@@ -12,4 +12,11 @@ export class GridDemoComponent implements OnInit {
   ngOnInit(): void {
   }
 
+  dataList:any[]=[
+	{name:"A",prop1:250,prop2:500},
+	{name: "B",prop1:500,prop2:100},
+	{name: "C",prop1:100,prop2:600},
+	{name:"A",prop1:250,prop2:500}
+  ]
+
 }

@@ -1,13 +1,15 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { GridComponent } from './grid.component';
+import { ScrollerModule } from '../scroller/scroller.module';
 
 
 
 @NgModule({
   declarations: [GridComponent],
   imports: [
-    CommonModule
+	CommonModule,
+	ScrollerModule
   ],
   exports:[
 	  GridComponent

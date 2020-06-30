@@ -16,6 +16,7 @@ import { GridModule } from 'src/app/components/Bhaskar/grid/grid.module';
 import { GridDemoComponent } from './grid-demo/grid-demo.component';
 import { ContainerDemoComponent } from './container-demo/container-demo.component';
 import { ContainerModule } from 'src/app/components/Bhaskar/container/container.module';
+import { UtilitiesModule } from 'src/app/components/Bhaskar/util/utilities.module';
 
 const routes=[
   {path:'dragdrop',component:DragdropDemoComponent},
@@ -35,6 +36,7 @@ const routes=[
      GridDemoComponent,
      ContainerDemoComponent],
   imports: [
+	UtilitiesModule,
 	ContainerModule,
 	GridModule,
     ChipsModule,
