@@ -12,12 +12,18 @@ import { PasswordDemoComponent } from './password-demo/password-demo.component';
 import { AutoCompleteModule } from '../../components/Bhaskar/auto-complete/auto-complete.module';
 import { InputboxModule } from '../../components/Bhaskar/inputbox/inputbox.module';
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
+import { GridModule } from 'src/app/components/Bhaskar/grid/grid.module';
+import { GridDemoComponent } from './grid-demo/grid-demo.component';
+import { ContainerDemoComponent } from './container-demo/container-demo.component';
+import { ContainerModule } from 'src/app/components/Bhaskar/container/container.module';
 
 const routes=[
   {path:'dragdrop',component:DragdropDemoComponent},
   {path:'chips',component:ChipsDemoComponent},
   {path:'passwordStrength',component:PasswordDemoComponent},
-  {path:'autocomplete',component:AutocompleteDemoComponent}
+  {path:'autocomplete',component:AutocompleteDemoComponent},
+  {path:'grid',component:GridDemoComponent},
+  {path:'container',component:ContainerDemoComponent}
 ]
 
 @NgModule({
@@ -25,8 +31,12 @@ const routes=[
      ChipsDemoComponent,
      DragdropDemoComponent,
      PasswordDemoComponent,
-     AutocompleteDemoComponent],
+     AutocompleteDemoComponent,
+     GridDemoComponent,
+     ContainerDemoComponent],
   imports: [
+	ContainerModule,
+	GridModule,
     ChipsModule,
     DragDropModule,
     PasswordModule,

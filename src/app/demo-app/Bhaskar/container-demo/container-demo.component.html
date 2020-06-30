@@ -1,0 +1,31 @@
+<vsf-container
+	[dataList]="dataList"
+	[sortingProperties]='["prop1","prop2"]'
+>
+	<div *ngFor="let data of dataList" class="col-2">
+		<div style="border-style:solid ;">
+			{{data.name}}<br>
+			{{data.prop1}}<br>
+			{{data.prop2}}<br>
+		</div>
+	</div>
+
+	<!-- <div class="col-6"	style="background-color: red ;">
+		<h6>{{dataList[0].name}}</h6>
+		<h6>{{dataList[0].prop1}}</h6>
+		<h6>{{dataList[0].prop2}}</h6>
+	</div>
+
+	<div class="col-6"	style="background-color: red ;">
+		<h6>{{dataList[1].name}}</h6>
+		<h6>{{dataList[1].prop1}}</h6>
+		<h6>{{dataList[1].prop2}}</h6>
+	</div>
+
+	<div class="col-6"	style="background-color: red ;">
+		<h6>{{dataList[2].name}}</h6>
+		<h6>{{dataList[2].prop1}}</h6>
+		<h6>{{dataList[2].prop2}}</h6>
+	</div> -->
+
+</vsf-container>

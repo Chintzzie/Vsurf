@@ -1,0 +1,19 @@
+div.vsf-container{
+	width: 100%;
+}
+
+div.vsf-grid{
+}
+div.controls>div.filter-controls,
+div.controls>div.sort-controls
+{
+	display: inline	;
+}
+
+div.controls>div.filter-controls{
+	float: left;
+}
+
+div.controls>div.sort-controls{
+	float: right;
+}

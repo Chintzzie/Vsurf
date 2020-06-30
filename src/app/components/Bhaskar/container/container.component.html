@@ -1,0 +1,39 @@
+<div class="vsf-container">
+
+	<div class="controls" >
+
+
+		<div class="filter-controls">
+			<vsf-button-group [buttons]="['acd','bcd','acd','bcd']"></vsf-button-group>
+		</div>
+
+		<div class="sort-controls">
+			<vsf-button-group
+				[buttons]="sortingProperties"
+				[states]="isAscendingOrder"
+				(clicked)="sortButtonClicked($event)"
+			>
+				<ng-template vsfTemplate="vsfButtonGroup" let-button="button" let-state="state">
+
+					<button>
+						<i *ngIf="state" class="fas fa-sort-amount-up"></i>
+						<i *ngIf="!state" class="fas fa-sort-amount-down"></i>
+						{{button}}
+					</button>
+
+				</ng-template>
+
+			</vsf-button-group>
+		</div>
+
+	</div>
+
+	<div class="vsf-grid" >
+		<vsf-grid >
+			<ng-content></ng-content>
+		</vsf-grid>
+	</div>
+
+
+</div>
+
