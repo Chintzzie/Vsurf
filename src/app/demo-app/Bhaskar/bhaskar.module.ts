@@ -3,19 +3,19 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { BhaskarComponentsComponent } from './bhaskar-components/bhaskar-components.component';
 import { ChipsDemoComponent } from './chips-demo/chips-demo.component';
-import { ChipsModule } from '../../components/Bhaskar/chips/chips.module';
-import { DragDropModule } from '../../components/Bhaskar/drag-drop/drag-drop';
-import { PasswordModule } from '../../components/Bhaskar/password/password.module';
-import { TableModule } from '../../components/Bhaskar/table/table.module';
+import { ChipsModule } from '../../components/Bhaskar/atoms/chips/chips.module';
+import { DragDropModule } from '../../components/Bhaskar/atoms/drag-drop/drag-drop';
+import { PasswordModule } from '../../components/Bhaskar/atoms/password/password.module';
+import { TableModule } from '../../components/Bhaskar/organism/table/table.module';
 import { DragdropDemoComponent } from './dragdrop-demo/dragdrop-demo.component';
 import { PasswordDemoComponent } from './password-demo/password-demo.component';
-import { AutoCompleteModule } from '../../components/Bhaskar/auto-complete/auto-complete.module';
-import { InputboxModule } from '../../components/Bhaskar/inputbox/inputbox.module';
+import { AutoCompleteModule } from '../../components/Bhaskar/molecules/auto-complete/auto-complete.module';
+import { InputboxModule } from '../../components/Bhaskar/atoms/inputbox/inputbox.module';
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
-import { GridModule } from 'src/app/components/Bhaskar/grid/grid.module';
+import { GridModule } from 'src/app/components/Bhaskar/molecules/grid/grid.module';
 import { GridDemoComponent } from './grid-demo/grid-demo.component';
 import { ContainerDemoComponent } from './container-demo/container-demo.component';
-import { ContainerModule } from 'src/app/components/Bhaskar/container/container.module';
+import { ContainerModule } from 'src/app/components/Bhaskar/organism/container/container.module';
 import { UtilitiesModule } from 'src/app/components/Bhaskar/util/utilities.module';
 
 const routes=[

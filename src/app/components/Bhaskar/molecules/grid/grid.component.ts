@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterContentInit, AfterViewInit, ViewEncapsulation, ContentChild, TemplateRef, Output, EventEmitter, OnChanges, SimpleChanges } from '@angular/core';
-import { VsfTemplateDirective } from '../util/vsf-template.directive';
+import { VsfTemplateDirective } from '../../util/vsf-template.directive';
 
 @Component({
   selector: 'vsf-grid',

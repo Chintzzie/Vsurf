@@ -18,7 +18,7 @@ div.no-items
 	border-style: solid;
 	border-width: 0.15em;
 	padding: 0.25em;
-	max-height: 360px;
+	max-height: 150px;
 }
 
 [class*="col-"] {

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, DoCheck, OnChanges, SimpleChanges, ContentChild, AfterContentInit, TemplateRef, Output, EventEmitter } from '@angular/core';
-import { VsfTemplateDirective } from '../util/vsf-template.directive';
+import { VsfTemplateDirective } from '../../util/vsf-template.directive';
 
 @Component({
   selector: 'vsf-container',

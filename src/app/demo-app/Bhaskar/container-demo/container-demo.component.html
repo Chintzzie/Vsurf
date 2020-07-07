@@ -1,17 +1,19 @@
+<h2 style="justify-self: center;">Container-Demo</h2>
+
 <vsf-container
 	[dataList]="dataList"
-	columns="col-12"
+	columns="col-12 col-md-6"
 	[sortingProperties]='["prop1","prop2"]'
 	[searchingProperties]='["name"]'
 	(loadMore)="loadMoreData()"
 >
 	<ng-template vsfTemplate="grid-item" let-item="item">
 
-			<div style="border-style:solid ;border-color: red;">
-				{{item.name}}<br>
-				{{item.prop1}}<br>
-				{{item.prop2}}<br>
-			</div>
+		<div style="border-style:solid ;border-color: red;">
+			{{item.name}}<br>
+			{{item.prop1}}<br>
+			{{item.prop2}}<br>
+		</div>
 
 
 	</ng-template>

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, TemplateRef, ContentChild, AfterViewInit, ContentChildren, QueryList, Output, EventEmitter, OnChanges, SimpleChanges, ViewEncapsulation } from '@angular/core';
-import { VsfTemplateDirective } from '../util/vsf-template.directive';
+import { VsfTemplateDirective } from '../../util/vsf-template.directive';
 
 @Component({
 	selector: 'vsfSelection-list',

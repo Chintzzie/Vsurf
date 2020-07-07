@@ -1,5 +1,5 @@
 import { Component, OnInit, Input, Output, EventEmitter, OnChanges, SimpleChanges, ContentChild, AfterContentInit, TemplateRef, ViewEncapsulation } from '@angular/core';
-import { VsfTemplateDirective } from '../util/vsf-template.directive';
+import { VsfTemplateDirective } from '../../util/vsf-template.directive';
 
 @Component({
   selector: 'vsf-button-group',

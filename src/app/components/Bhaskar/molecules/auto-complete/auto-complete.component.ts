@@ -1,8 +1,8 @@
 import { Component, OnInit, Input, Output, EventEmitter, AfterViewInit, ViewChild, TemplateRef, ContentChild, ElementRef, AfterContentInit, AfterViewChecked, DoCheck, ViewEncapsulation, OnChanges, SimpleChanges } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
-import { SelectionListComponent } from '../selection-list/selection-list.component';
-import { VsfTemplateDirective } from '../util/vsf-template.directive';
-import { Inputbox } from '../inputbox/inputbox';
+import { SelectionListComponent } from '../../atoms/selection-list/selection-list.component';
+import { VsfTemplateDirective } from '../../util/vsf-template.directive';
+import { Inputbox } from '../../atoms/inputbox/inputbox';
 
 @Component({
   selector: 'vsf-auto-complete',

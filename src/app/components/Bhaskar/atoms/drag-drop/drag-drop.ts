@@ -1,7 +1,7 @@
 import {NgModule,ElementRef,AfterViewInit,HostListener,Output,EventEmitter,NgZone,Directive, Input, AfterViewChecked} from '@angular/core';
 import {CommonModule} from '@angular/common';
 
-import {cUtil} from '../util/utilfiles';
+import {cUtil} from '../../util/utilfiles';
 
 @Directive({
   selector: '[vsfDraggable]'

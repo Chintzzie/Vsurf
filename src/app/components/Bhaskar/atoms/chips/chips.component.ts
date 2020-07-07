@@ -1,7 +1,7 @@
 import { Component, OnInit, Input, ViewChild, ElementRef, AfterViewInit, OnChanges, SimpleChanges, DoCheck, ContentChild, TemplateRef, Output, EventEmitter } from '@angular/core';
 import {NG_VALUE_ACCESSOR, ControlValueAccessor} from '@angular/forms';
 
-import {cUtil} from '../util/utilfiles';
+import {cUtil} from '../../util/utilfiles';
 
 @Component({
   selector: 'vsfChips',
