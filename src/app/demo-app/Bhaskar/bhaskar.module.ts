@@ -36,6 +36,7 @@ const routes=[
      GridDemoComponent,
      ContainerDemoComponent],
   imports: [
+	RouterModule.forChild(routes),
 	UtilitiesModule,
 	ContainerModule,
 	GridModule,
@@ -45,7 +46,6 @@ const routes=[
     TableModule,
     AutoCompleteModule,
     InputboxModule,
-    RouterModule.forChild(routes),
     CommonModule
   ],
   exports:[

@@ -11,11 +11,12 @@ import { ComponentsListComponent } from './demo-app/components-demo/components-l
     AppComponent
   ],
   imports: [
-    RouterModule.forRoot([
-      {path:'',component:ComponentsListComponent}
-    ]),
+
     ComponentsDemoModule,
-    BrowserModule
+	BrowserModule,
+	RouterModule.forRoot([
+		{path:'',component:ComponentsListComponent}
+	  ])
   ],
   providers: [],
   bootstrap: [AppComponent]

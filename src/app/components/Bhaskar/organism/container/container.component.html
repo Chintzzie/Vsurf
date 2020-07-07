@@ -10,11 +10,12 @@
 			>
 				<ng-template vsfTemplate="vsfButtonGroup" let-button="button" let-state="state">
 
-					<button>
+					<vsf-button
+					>
 						<i *ngIf="state" class="fas fa-sort-amount-up"></i>
 						<i *ngIf="!state" class="fas fa-sort-amount-down"></i>
 						{{button}}
-					</button>
+					</vsf-button>
 
 				</ng-template>
 

@@ -9,7 +9,10 @@
 		>
 
 			<div *ngIf="!customTemplate" class="default-template">
-				<button>{{button.toLocaleUpperCase()}}</button>
+				<button
+					value={{button.toLocaleUpperCase()}}
+				>
+				</button>
 			</div>
 
 			<div *ngIf="customTemplate" class="custom-template">

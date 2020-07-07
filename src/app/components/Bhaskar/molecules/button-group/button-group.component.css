@@ -15,8 +15,8 @@ div.button-group button{
 	margin: 0.1em;
 }
 
-div.button.active>div.default-template>button,
-div.button.active>div.custom-template>button
+div.button.active>div.default-template>vsf-button>button,
+div.button.active>div.custom-template>vsf-button>button
 {
 	background-color:blue;
 	color:white
