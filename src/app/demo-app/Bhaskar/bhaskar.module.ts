@@ -12,11 +12,11 @@ import { PasswordDemoComponent } from './password-demo/password-demo.component';
 import { AutoCompleteModule } from '../../components/Bhaskar/molecules/auto-complete/auto-complete.module';
 import { InputboxModule } from '../../components/Bhaskar/atoms/inputbox/inputbox.module';
 import { AutocompleteDemoComponent } from './autocomplete-demo/autocomplete-demo.component';
-import { GridModule } from 'src/app/components/Bhaskar/molecules/grid/grid.module';
+import { GridModule } from '../../components/Bhaskar/molecules/grid/grid.module';
 import { GridDemoComponent } from './grid-demo/grid-demo.component';
 import { ContainerDemoComponent } from './container-demo/container-demo.component';
-import { ContainerModule } from 'src/app/components/Bhaskar/organism/container/container.module';
-import { UtilitiesModule } from 'src/app/components/Bhaskar/util/utilities.module';
+import { ContainerModule } from '../../components/Bhaskar/organism/container/container.module';
+import { UtilitiesModule } from '../../components/Bhaskar/util/utilities.module';
 
 const routes=[
   {path:'dragdrop',component:DragdropDemoComponent},

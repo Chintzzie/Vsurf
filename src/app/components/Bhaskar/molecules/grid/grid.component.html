@@ -1,17 +1,17 @@
 
 <div
-vsf-Scroller
+	vsf-Scroller
+	(scrolledToBottom)="scrolledToBottom()"
+	[ngStyle]="gridStyle"
+	class="grid-container"
+	>
+		<div *ngFor="let dataItem of dataList" [class]="columns">
+			<div>
+				<ng-container *ngTemplateOutlet="itemTemplate,context:{item:dataItem}">
+				</ng-container>
+			</div>
 
-(scrolledToBottom)="scrolledToBottom()"
-[ngStyle]="gridStyle"
-class="grid-container">
-<div *ngFor="let dataItem of dataList" [class]="columns">
-	<div>
-		<ng-container *ngTemplateOutlet="itemTemplate,context:{item:dataItem}">
-		</ng-container>
-	</div>
-
-</div>
+		</div>
 </div>
 
 
