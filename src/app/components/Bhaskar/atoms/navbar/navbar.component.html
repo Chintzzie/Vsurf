@@ -1,0 +1,31 @@
+<header class="nav-bar">
+
+	<h1 class="logo">
+		<div *ngIf="logoTemplate else defaultLogo">
+			<ng-container *ngTemplateOutlet="logoTemplate">
+			</ng-container>
+		</div>
+
+		<ng-template #defaultLogo>
+			LOGO
+		</ng-template>
+	</h1>
+
+	<ul class="nav incollapsible" >
+		<ng-container *ngTemplateOutlet="incollapsibleNavTemplate">
+
+		</ng-container>
+	</ul>
+
+	<ul class="nav collapsible" [ngClass]="{active:isNavActive}">
+		<ng-container *ngTemplateOutlet="collapsibleNavTemplate">
+
+		</ng-container>
+	</ul>
+
+	<div class="burger" (click)="burgerClicked()" >
+		<i class="fas " [ngClass]="{'fa-bars':!isBurgerOpened,'fa-times':isBurgerOpened}"></i>
+	</div>
+
+
+</header>

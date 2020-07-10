@@ -1,0 +1,22 @@
+<div class="modal">
+
+	<div id="overlay" (click)="triggerClose()" [ngClass]="{hidden:!showModal,show:showModal}">
+	</div>
+
+	<div id="modal-container" [ngClass]="{hidden:!showModal,show:showModal}">
+
+		<i  (click)="triggerClose()" class="far fa-times-circle close-button"></i>
+
+		<div *ngIf="customModalTemplate else defaultModal">
+			<ng-container *ngTemplateOutlet="customModalTemplate">
+			</ng-container>
+		</div>
+
+		<ng-template #defaultModal>
+			<span>Hurray Modal here!</span>
+		</ng-template>
+
+	</div>
+
+</div>
+

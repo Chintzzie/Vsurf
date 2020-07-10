@@ -17,6 +17,12 @@ import { GridDemoComponent } from './grid-demo/grid-demo.component';
 import { ContainerDemoComponent } from './container-demo/container-demo.component';
 import { ContainerModule } from '../../components/Bhaskar/organism/container/container.module';
 import { UtilitiesModule } from '../../components/Bhaskar/util/utilities.module';
+import { MessageDemoComponent } from './message-demo/message-demo.component';
+import { MessageModule } from 'src/app/components/Bhaskar/atoms/message/message.module';
+import { ModalDemoComponent } from './modal-demo/modal-demo.component';
+import { ModalModule } from 'src/app/components/Bhaskar/atoms/modal/modal.module';
+import { NavbarDemoComponent } from './navbar-demo/navbar-demo.component';
+import { NavbarModule } from 'src/app/components/Bhaskar/atoms/navbar/navbar.module';
 
 const routes=[
   {path:'dragdrop',component:DragdropDemoComponent},
@@ -24,7 +30,10 @@ const routes=[
   {path:'passwordStrength',component:PasswordDemoComponent},
   {path:'autocomplete',component:AutocompleteDemoComponent},
   {path:'grid',component:GridDemoComponent},
-  {path:'container',component:ContainerDemoComponent}
+  {path:'container',component:ContainerDemoComponent},
+  {path:'message',component:MessageDemoComponent},
+  {path: 'modal',component:ModalDemoComponent},
+  {path: 'navbar',component:NavbarDemoComponent}
 ]
 
 @NgModule({
@@ -34,7 +43,10 @@ const routes=[
      PasswordDemoComponent,
      AutocompleteDemoComponent,
      GridDemoComponent,
-     ContainerDemoComponent],
+     ContainerDemoComponent,
+     MessageDemoComponent,
+     ModalDemoComponent,
+     NavbarDemoComponent],
   imports: [
 	RouterModule.forChild(routes),
 	UtilitiesModule,
@@ -45,7 +57,10 @@ const routes=[
     PasswordModule,
     TableModule,
     AutoCompleteModule,
-    InputboxModule,
+	InputboxModule,
+	MessageModule,
+	ModalModule,
+	NavbarModule,
     CommonModule
   ],
   exports:[

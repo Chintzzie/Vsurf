@@ -1,0 +1,24 @@
+<button  (click)="clickedInfo()">Click me to trigger Info message</button>
+<button (click)="clickedError()">Click me to trigger Error message</button>
+<button (click)="clickedWarning()">Click me to trigger Warn message</button>
+<button (click)="clickedBeta()">Click me to trigger Beta messages</button>
+<button (click)="clearClicked()">Clear All messages</button>
+
+<vsf-message name="alpha" >
+	<ng-template let-message="message" vsfTemplate="message">
+		<h4>custom {{message.summary}}</h4>
+	</ng-template>
+</vsf-message>
+
+<vsf-message name="beta" position="bottom-left" >
+</vsf-message>
+
+<br>
+asdsa<br>
+app-chips-demo
+sdf<br>
+dsfsg<br>
+gdfgdfg<br>
+fgfdg<br>
+
+

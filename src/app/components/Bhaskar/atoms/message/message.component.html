@@ -1,0 +1,28 @@
+
+<div class="messagesContainer" [ngClass]="'msg-pos-'+position">
+	<div *ngFor="let message of messages" class="messageItem" [ngClass]="message.severity">
+
+		<i  (click)="closeClicked(message.key)" class="far fa-times-circle close-button"></i>
+
+		<div  *ngIf="customMessageTemplate else defaultMessageTemplate"  class="customMessageTemplate">
+
+			<ng-container *ngTemplateOutlet="customMessageTemplate,context:{message:message}">
+			</ng-container>
+
+		</div>
+
+		<ng-template #defaultMessageTemplate>
+
+			<div class="defaultMessageTemplate">
+				<h4>{{message.summary}}</h4>
+				<span>{{message.detail}}</span>
+				<br>
+
+			</div>
+
+		</ng-template>
+
+	</div>
+
+</div>
+
